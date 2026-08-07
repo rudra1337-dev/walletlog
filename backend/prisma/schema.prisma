@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  name         String
+  email        String   @unique
+  passwordHash String?
+  googleId     String?
+  authProvider String
+  createdAt    DateTime @default(now())
+  transactions Transaction[]
+}
+
+model Category {
+  id           Int      @id @default(autoincrement())
+  name         String
+  type         String
+  isDefault    Boolean  @default(true)
+  transactions Transaction[]
+}
+
+model Transaction {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  categoryId Int
+  type       String
+  amount     Decimal
+  date       DateTime
+  notes      String?
+  tags       String[]
+  createdAt  DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category Category @relation(fields: [categoryId], references: [id])
+
+  @@index([userId, date])
+  @@index([categoryId])
+}
