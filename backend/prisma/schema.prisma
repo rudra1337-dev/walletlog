@@ -13,7 +13,7 @@ model User {
   name         String
   email        String   @unique
   passwordHash String?
-  googleId     String?
+  googleId     String?  @unique
   authProvider String
   createdAt    DateTime @default(now())
   transactions Transaction[]
