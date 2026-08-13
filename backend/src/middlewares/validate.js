@@ -11,6 +11,17 @@ export const loginSchema = z.object({
   password: z.string().min(1),
 });
 
+export const transactionSchema = z.object({
+  type: z.enum(["income", "expense"]),
+  amount: z.number().positive(),
+  categoryId: z.number().int(),
+  date: z.string(),
+  notes: z.string().optional(),
+  tags: z.array(z.string()).optional(),
+});
+
+export const transactionUpdateSchema = transactionSchema.partial();
+
 export function validate(schema) {
   return (req, res, next) => {
     const result = schema.safeParse(req.body);
