@@ -26,14 +26,24 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(signupUser.fulfilled, (state, action) => { state.user = action.payload; })
-      .addCase(loginUser.fulfilled, (state, action) => { state.user = action.payload; })
+      .addCase(signupUser.fulfilled, (state, action) => { state.user = action.payload; state.status = "succeeded"; })
+      .addCase(loginUser.fulfilled, (state, action) => { state.user = action.payload; state.status = "succeeded"; })
       .addCase(fetchMe.fulfilled, (state, action) => { state.user = action.payload; state.status = "succeeded"; })
       .addCase(fetchMe.rejected, (state) => { state.user = null; state.status = "failed"; })
-      .addCase(logoutUser.fulfilled, (state) => { state.user = null; })
+      .addCase(logoutUser.fulfilled, (state) => { state.user = null; state.status = "failed"; })
+      .addMatcher(
+        (action) => action.type.startsWith("auth/") && action.type.endsWith("/pending"),
+        (state) => {
+          state.status = "loading";
+          state.error = null;
+        }
+      )
       .addMatcher(
         (action) => action.type.endsWith("/rejected") && action.type.startsWith("auth/"),
-        (state, action) => { state.error = action.error.message; }
+        (state, action) => {
+          state.error = action.error.message;
+          state.status = "failed";
+        }
       );
   },
 });

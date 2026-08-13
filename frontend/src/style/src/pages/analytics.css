@@ -1,0 +1,79 @@
+.analytics-page {
+  display: grid;
+  gap: 1rem;
+}
+
+.analytics-header {
+  margin-bottom: 0.25rem;
+}
+
+.analytics-grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: minmax(18rem, 0.82fr) minmax(0, 1.18fr);
+}
+
+.analytics-card {
+  min-width: 0;
+}
+
+.analytics-card-wide {
+  grid-column: 1 / -1;
+}
+
+.analytics-card .card-body {
+  padding: 1rem;
+}
+
+.analytics-card h2 {
+  color: var(--wl-text);
+  font-size: 1rem;
+  font-weight: 750;
+  margin: 0 0 0.25rem;
+}
+
+.analytics-card p {
+  font-size: 0.82rem;
+  margin-bottom: 0.75rem;
+}
+
+.chart-frame {
+  height: clamp(14.5rem, 29vw, 17.5rem);
+  min-height: 0;
+  width: 100%;
+}
+
+.chart-frame-pie {
+  height: clamp(13.5rem, 27vw, 16.5rem);
+}
+
+.recharts-wrapper,
+.recharts-surface {
+  overflow: visible;
+}
+
+@media (max-width: 991.98px) {
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-frame,
+  .chart-frame-pie {
+    height: 15.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .analytics-page {
+    gap: 0.8rem;
+  }
+
+  .analytics-card .card-body {
+    padding: 0.9rem;
+  }
+
+  .chart-frame,
+  .chart-frame-pie {
+    height: 13.5rem;
+  }
+}

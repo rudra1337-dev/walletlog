@@ -1,0 +1,13 @@
+.auth-page {
+  align-items: center;
+  display: grid;
+  min-height: 100vh;
+  padding: 1.25rem;
+}
+
+.auth-card {
+  animation: page-enter 420ms var(--wl-ease) both;
+  margin: 0 auto;
+  max-width: 28rem;
+  width: 100%;
+}

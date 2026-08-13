@@ -1,0 +1,116 @@
+.wallet-navbar {
+  background: color-mix(in srgb, var(--wl-surface) 92%, transparent);
+  border-bottom: 1px solid var(--wl-border);
+  backdrop-filter: blur(16px);
+  transition: background 220ms var(--wl-ease), border-color 220ms var(--wl-ease);
+}
+
+.brand-mark {
+  align-items: center;
+  background: var(--wl-primary);
+  border-radius: 8px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 800;
+  height: 2rem;
+  justify-content: center;
+  width: 2rem;
+}
+
+.navbar-brand,
+.nav-link,
+.dropdown-item {
+  color: var(--wl-text);
+}
+
+.nav-link {
+  border-radius: 8px;
+  font-weight: 600;
+  padding-left: 0.85rem !important;
+  padding-right: 0.85rem !important;
+  transition: background 180ms var(--wl-ease), color 180ms var(--wl-ease), transform 180ms var(--wl-ease);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: color-mix(in srgb, var(--wl-primary) 11%, transparent);
+  color: var(--wl-primary) !important;
+}
+
+.nav-link:hover {
+  transform: translateY(-1px);
+}
+
+.theme-toggle {
+  align-items: center;
+  border: 1px solid var(--wl-border);
+  border-radius: 999px;
+  color: var(--wl-text);
+  display: inline-flex;
+  font-size: 0.9rem;
+  font-weight: 700;
+  gap: 0.45rem;
+  min-height: 2.35rem;
+  padding: 0.35rem 0.75rem;
+}
+
+.theme-toggle:hover {
+  border-color: color-mix(in srgb, var(--wl-primary) 45%, var(--wl-border));
+  color: var(--wl-primary);
+}
+
+.nav-avatar-link {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  justify-content: center;
+  padding: 0.1rem;
+  text-decoration: none;
+  transition: background 180ms var(--wl-ease), transform 180ms var(--wl-ease);
+}
+
+.nav-avatar-link:hover,
+.nav-avatar-link.active {
+  background: color-mix(in srgb, var(--wl-primary) 12%, transparent);
+  transform: translateY(-1px);
+}
+
+.nav-avatar {
+  align-items: center;
+  background: linear-gradient(135deg, var(--wl-primary), var(--wl-income));
+  border: 1px solid color-mix(in srgb, #fff 32%, transparent);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 800;
+  height: 2.35rem;
+  justify-content: center;
+  width: 2.35rem;
+}
+
+@media (max-width: 991.98px) {
+  .wallet-navbar {
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important;
+  }
+
+  .navbar-nav {
+    gap: 0.35rem;
+  }
+
+  .wallet-navbar .btn,
+  .wallet-navbar .nav-link,
+  .theme-toggle {
+    justify-content: center;
+    min-height: 2.55rem;
+    width: 100%;
+  }
+
+  .nav-avatar-link {
+    align-self: center;
+    margin-top: 0.15rem;
+    width: 2.65rem;
+  }
+}

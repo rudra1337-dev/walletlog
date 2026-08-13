@@ -1,0 +1,80 @@
+.transaction-filter-card {
+  animation: page-enter 460ms var(--wl-ease) both;
+}
+
+.transactions-page {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 4.5rem);
+}
+
+.transaction-data-card {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.transaction-table-scroll {
+  flex: 1 1 auto;
+  max-height: clamp(22rem, 48vh, 34rem);
+  min-height: 18rem;
+  overflow: auto;
+}
+
+.transaction-table-scroll .table {
+  min-width: 52rem;
+}
+
+.transaction-table-scroll thead th {
+  background: var(--wl-surface);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.transaction-pagination {
+  align-items: center;
+  background: var(--wl-surface);
+  border-top: 1px solid var(--wl-border);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+}
+
+.pagination-summary,
+.pagination-page {
+  color: var(--wl-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.pagination-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: flex-end;
+}
+
+@media (max-width: 767.98px) {
+  .transactions-page {
+    max-height: none;
+  }
+
+  .transaction-table-scroll {
+    max-height: 58vh;
+    min-height: 20rem;
+  }
+
+  .transaction-pagination {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pagination-actions {
+    justify-content: space-between;
+  }
+}

@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../features/authSlice";
+import "../style/src/components/surfaces.css";
 
 export default function Profile() {
   const { user } = useSelector((s) => s.auth);
@@ -22,21 +23,26 @@ export default function Profile() {
     .slice(0, 2);
 
   return (
-    <div className="container mt-4" style={{ maxWidth: 480 }}>
-      <h4 className="mb-4">Profile</h4>
+    <div className="container app-shell" style={{ maxWidth: 640 }}>
+      <div className="mb-4">
+        <p className="page-kicker">Account</p>
+        <h1 className="page-title">Profile</h1>
+        <p className="page-subtitle">Your sign-in details and session controls.</p>
+      </div>
 
-      <div className="card shadow-sm border-0">
-        <div className="card-body d-flex align-items-center gap-3">
+      <div className="surface-card">
+        <div className="card-body d-flex flex-column flex-sm-row align-items-sm-center gap-3">
           <div
-            className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+            className="profile-avatar rounded-circle text-white d-flex align-items-center justify-content-center flex-shrink-0"
             style={{ width: 64, height: 64, fontSize: 22, fontWeight: 600 }}
+            aria-hidden="true"
           >
             {initials}
           </div>
           <div>
             <h5 className="mb-1">{user.name}</h5>
             <p className="text-muted mb-1">{user.email}</p>
-            <span className={`badge ${user.authProvider === "google" ? "bg-danger" : "bg-secondary"}`}>
+            <span className="badge badge-soft">
               {user.authProvider === "google" ? "Signed in with Google" : "Signed in with Email"}
             </span>
           </div>

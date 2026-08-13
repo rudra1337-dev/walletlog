@@ -1,0 +1,122 @@
+.dashboard-page {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.dashboard-header {
+  align-items: end;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 0.15rem;
+}
+
+.summary-card-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.summary-card-col {
+  min-width: 0;
+}
+
+.dashboard-content-grid {
+  align-items: stretch;
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: minmax(0, 2fr) minmax(18rem, 0.85fr);
+}
+
+.dashboard-card-header {
+  align-items: center;
+  display: flex;
+  gap: 0.85rem;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.dashboard-recent-card .card-body,
+.activity-mix-card .card-body {
+  padding: 1rem;
+}
+
+.dashboard-recent-card h2,
+.activity-mix-card h2 {
+  font-size: 1rem;
+}
+
+.dashboard-recent-card .small {
+  font-size: 0.8rem;
+}
+
+.dashboard-recent-card,
+.activity-mix-card {
+  min-width: 0;
+}
+
+.dashboard-recent-list {
+  max-height: 23rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.activity-mix-card .card-body {
+  display: grid;
+  align-content: start;
+}
+
+.activity-mix-row {
+  align-items: center;
+  border-bottom: 1px solid var(--wl-border);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  padding: 0.68rem 0;
+  transition: background 180ms var(--wl-ease);
+}
+
+.activity-mix-row:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 991.98px) {
+  .summary-card-grid,
+  .dashboard-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-card-grid {
+    gap: 0.85rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .dashboard-header,
+  .dashboard-card-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .dashboard-header .btn,
+  .dashboard-card-header .btn {
+    width: 100%;
+  }
+
+  .dashboard-recent-list {
+    max-height: 58vh;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .dashboard-page {
+    gap: 0.8rem;
+  }
+
+  .dashboard-recent-card .card-body,
+  .activity-mix-card .card-body {
+    padding: 0.9rem;
+  }
+}

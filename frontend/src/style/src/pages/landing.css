@@ -1,0 +1,74 @@
+.landing-hero {
+  background:
+    linear-gradient(120deg, color-mix(in srgb, var(--wl-primary) 10%, transparent), transparent 42%),
+    var(--wl-bg);
+  min-height: 72vh;
+  padding: 5rem 0 4rem;
+}
+
+.hero-product-panel {
+  background: var(--wl-surface);
+  border: 1px solid var(--wl-border);
+  border-radius: 8px;
+  box-shadow: var(--wl-shadow);
+  padding: 1rem;
+  transition: transform 260ms var(--wl-ease), box-shadow 260ms var(--wl-ease);
+}
+
+.hero-product-panel:hover {
+  transform: translateY(-3px);
+}
+
+.hero-mini-chart {
+  align-items: end;
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: repeat(7, 1fr);
+  height: 11rem;
+  padding: 1rem 0.25rem 0;
+}
+
+.hero-mini-chart span {
+  animation: bar-rise 700ms var(--wl-ease) both;
+  background: linear-gradient(180deg, var(--wl-primary), var(--wl-primary-dark));
+  border-radius: 8px 8px 3px 3px;
+  display: block;
+  transform-origin: bottom;
+}
+
+@keyframes bar-rise {
+  from {
+    opacity: 0;
+    transform: scaleY(0.2);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@media (max-width: 991.98px) {
+  .landing-hero {
+    min-height: auto;
+    padding: 3.5rem 0 2.75rem;
+  }
+
+  .hero-mini-chart {
+    height: 9rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .landing-hero {
+    padding: 2.4rem 0 2rem;
+  }
+
+  .hero-product-panel {
+    padding: 0.85rem;
+  }
+
+  .hero-mini-chart {
+    height: 7.5rem;
+  }
+}

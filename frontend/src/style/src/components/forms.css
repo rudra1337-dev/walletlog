@@ -1,0 +1,134 @@
+.btn {
+  border-radius: 8px;
+  font-weight: 700;
+  transition: background 180ms var(--wl-ease), border-color 180ms var(--wl-ease), color 180ms var(--wl-ease), transform 180ms var(--wl-ease), box-shadow 180ms var(--wl-ease);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--wl-primary);
+  --bs-btn-border-color: var(--wl-primary);
+  --bs-btn-hover-bg: var(--wl-primary-dark);
+  --bs-btn-hover-border-color: var(--wl-primary-dark);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--wl-primary);
+  --bs-btn-border-color: color-mix(in srgb, var(--wl-primary) 55%, var(--wl-border));
+  --bs-btn-hover-bg: var(--wl-primary);
+  --bs-btn-hover-border-color: var(--wl-primary);
+}
+
+.form-control,
+.form-select {
+  background-color: var(--wl-surface);
+  border-color: var(--wl-border);
+  border-radius: 8px;
+  color: var(--wl-text);
+  min-height: 2.75rem;
+  transition: border-color 180ms var(--wl-ease), box-shadow 180ms var(--wl-ease), background 180ms var(--wl-ease);
+}
+
+.form-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.form-control:focus,
+.form-select:focus,
+.btn:focus-visible,
+.nav-link:focus-visible,
+.dropdown-item:focus-visible {
+  border-color: var(--wl-primary);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--wl-primary) 22%, transparent);
+  outline: none;
+}
+
+.modal.d-block {
+  animation: modal-backdrop-in 180ms var(--wl-ease) both;
+}
+
+.transaction-modal-backdrop {
+  background: rgba(2, 6, 23, 0.58);
+  overflow: hidden;
+}
+
+.modal.d-block .modal-dialog {
+  animation: modal-panel-in 240ms var(--wl-ease) both;
+}
+
+.transaction-modal-dialog {
+  margin: 1rem auto;
+  max-width: min(36rem, calc(100vw - 1.5rem));
+}
+
+.transaction-modal-dialog .modal-content {
+  max-height: calc(100vh - 2rem);
+  overflow: hidden;
+}
+
+.transaction-modal-body {
+  max-height: calc(100vh - 12rem);
+  overflow-y: auto;
+  padding: 1rem 1.25rem;
+}
+
+.transaction-modal-actions {
+  background: var(--wl-surface);
+  border-top: 1px solid var(--wl-border);
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem 1.25rem;
+}
+
+@keyframes modal-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .btn {
+    min-height: 2.55rem;
+  }
+
+  .form-control,
+  .form-select {
+    min-height: 2.55rem;
+  }
+
+  .transaction-modal-dialog {
+    align-items: stretch;
+    display: flex;
+    min-height: calc(100vh - 1rem);
+  }
+
+  .transaction-modal-dialog .modal-content {
+    max-height: calc(100vh - 1rem);
+  }
+
+  .transaction-modal-body {
+    max-height: calc(100vh - 11rem);
+    padding: 0.9rem 1rem;
+  }
+
+  .transaction-modal-actions {
+    grid-template-columns: 1fr;
+    padding: 0.9rem 1rem;
+  }
+}
