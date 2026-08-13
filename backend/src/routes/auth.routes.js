@@ -5,16 +5,10 @@ import { requireAuth } from "../middlewares/authMiddleware.js";
 import { PrismaClient } from "@prisma/client";
 import passport from "../config/passport.js";
 import { signToken } from "../utils/jwt.js";
+import { authCookieOptions } from "../utils/authCookie.js";
 
 const prisma = new PrismaClient();
 const router = Router();
-
-const cookieOptions = {
-  httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
-  sameSite: "lax",
-  maxAge: 7 * 24 * 60 * 60 * 1000,
-};
 
 router.get("/google", passport.authenticate("google", { scope: ["profile", "email"], session: false }));
 
@@ -23,7 +17,7 @@ router.get(
   passport.authenticate("google", { session: false, failureRedirect: `${process.env.CLIENT_URL}/login` }),
   (req, res) => {
     const token = signToken({ userId: req.user.id });
-    res.cookie("token", token, cookieOptions).redirect(`${process.env.CLIENT_URL}/dashboard`);
+    res.cookie("token", token, authCookieOptions).redirect(`${process.env.CLIENT_URL}/dashboard`);
   }
 );
 
