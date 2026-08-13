@@ -3,10 +3,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Transactions from "./pages/Transactions";
+import Dashboard from "./pages/Dashboard";
 
-function Dashboard() {
-  return <h2 className="p-4">Dashboard (placeholder — built next)</h2>;
-}
 
 export default function App() {
   return (

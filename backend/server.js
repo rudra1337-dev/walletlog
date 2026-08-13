@@ -7,6 +7,7 @@ import passport from "./src/config/passport.js";
 import transactionRoutes from "./src/routes/transaction.routes.js";
 import { errorHandler } from "./src/middlewares/errorHandler.js";
 import categoryRoutes from "./src/routes/category.routes.js";
+import analyticsRoutes from "./src/routes/analytics.routes.js";
 
 dotenv.config();
 const app = express();
@@ -20,6 +21,7 @@ app.use(passport.initialize());
 
 app.use("/api/transactions", transactionRoutes);
 app.use("/api/categories", categoryRoutes);
+app.use("/api/analytics", analyticsRoutes);
 
 
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
