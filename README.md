@@ -176,7 +176,7 @@ This project is a practical finance tracking application for learning and portfo
 
 For backend-specific setup and API docs, see [backend/README.md](backend/README.md).
 For frontend-specific setup and UI docs, see [frontend/README.md](frontend/README.md).
-
+```
 │   ├── routes/
 │   │   └── ProtectedRoute.jsx
 │   ├── hooks/
