@@ -25,7 +25,9 @@ export default function Dashboard() {
 
   useEffect(() => {
     dispatch(fetchTransactions({}));
-    getSummary().then(setSummary);
+    getSummary()
+      .then(setSummary)
+      .catch(() => setSummary({ balance: 0, totalIncome: 0, totalExpense: 0 }));
   }, [dispatch]);
 
   const recent = items.slice(0, 5);
